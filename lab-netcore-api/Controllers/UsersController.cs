@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using lab_netcore_api.models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -20,13 +21,14 @@ namespace lab_netcore_api.Controllers
         }
 
         /// <summary>
-        /// Obtener los usuarios
+        /// Obtener todos los usuarios
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IEnumerable<string> Get()
+        [ProducesResponseType(typeof(User),200)]
+        public  IActionResult Get()
         {
-            return new string[] { "value1", "value2", Configuration["Mensaje"] };
+            return Ok();
         }
 
         // GET: api/Users/5
